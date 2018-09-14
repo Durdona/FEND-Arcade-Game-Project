@@ -1,5 +1,9 @@
 # FEND-Arcade-Game-Project
 ## Overview: Game Functionality
+<p align="center">
+  <img src ="https://github.com/Durdona/FEND-Arcade-Game-Project/blob/master/screenshot.png" width="600" height="615"/>
+</p>
+
 
 <p>Your implementation must at minimum follow the basic functionality, but you can add additional optional functionality to your game, if you wish.</p>
 
