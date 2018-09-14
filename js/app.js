@@ -1,17 +1,17 @@
 
 // Block width and height
-var BLOCK_W = 101;
-var BLOCK_H = 83;
+const BLOCK_W = 101;
+const BLOCK_H = 83;
 
 // Level width and height
-var LEVEL_W = 5;
-var LEVEL_H = 6;
+const LEVEL_W = 5;
+const LEVEL_H = 6;
 
 // Sprite offset
-var OFFSET_Y = -32;
+const OFFSET_Y = -32;
 
 // Enemies our player must avoid
-var Enemy = function() {
+const Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -40,8 +40,8 @@ Enemy.prototype.reset = function() {
 };
 
 Enemy.prototype.checkCollisions = function() {
-	var xCol = Math.abs(this.x - player.x) < 1;
-	var yCol = Math.abs(this.y - player.y) < 1;
+	const xCol = Math.abs(this.x - player.x) < 0.75;
+	const yCol = Math.abs(this.y - player.y) < 0.75;
 	if(xCol && yCol)
 		player.reset();
 };
@@ -54,14 +54,14 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function() {
+const Player = function() {
 	this.sprite = 'images/char-boy.png';
 	this.reset();
 };
 
 Player.prototype.update = function(dt) {
 	if(this.y == 0)
-		this.reset();
+		setTimeout(() => {this.reset()}, 250);
 };
 
 Player.prototype.render = function() {
@@ -97,15 +97,15 @@ Player.prototype.handleInput = function(key) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [];
-for(var i = 0; i < 3; ++i)
+const allEnemies = [];
+for(let i = 0; i < 3; ++i)
 	allEnemies.push(new Enemy());
-var player = new Player();
+const player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
